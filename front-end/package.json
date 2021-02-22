@@ -1,0 +1,46 @@
+{
+  "name": "front-end",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@material-ui/data-grid": "^4.0.0-alpha.20",
+    "@testing-library/jest-dom": "^5.11.9",
+    "@testing-library/react": "^11.2.5",
+    "@testing-library/user-event": "^12.7.1",
+    "axios": "^0.21.1",
+    "bootstrap": "^4.0.0-alpha.6",
+    "ra-data-json-server": "^3.12.4",
+    "ra-data-simple-rest": "^3.10.4",
+    "react": "^17.0.1",
+    "react-admin": "^3.12.4",
+    "react-bootstrap": "^0.32.1",
+    "react-dom": "^17.0.1",
+    "react-scripts": "4.0.2",
+    "react-table": "^7.6.3",
+    "web-vitals": "^1.1.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
