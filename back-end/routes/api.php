@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\JwtAuthController;
 use App\Http\Controllers\CustomerController;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -14,8 +15,8 @@ use App\Http\Controllers\CustomerController;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
+Route::get('/sendemail/{id}', [CustomerController::class, 'sendEmail']);
 Route::post('/register', [CustomerController::class, 'register']);
-
 Route::group([
 
     'prefix' => 'auth'
