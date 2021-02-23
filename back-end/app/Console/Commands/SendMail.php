@@ -53,7 +53,7 @@ class SendMail extends Command
 
 
         Mail::send('welcome', $data,function($message){
-            $message->to('rayanalijawhari@gmail.com','Rayan')->subject('Test Subject');
+            $message->to('rayanalijawhari@gmail.com','Rayan')->subject('Registrations');
         });
         return response()->json([
             'msg' => "succes",
