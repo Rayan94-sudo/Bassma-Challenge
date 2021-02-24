@@ -17,7 +17,7 @@ use App\Http\Controllers\CustomerController;
 */
 Route::post('/register', [CustomerController::class, 'register']);
 Route::group([
-
+    'middleware' => ['auth:api','is-admin'],
     'prefix' => 'auth'
 ], function ($router) {
     Route::get('/index', [CustomerController::class, 'index']);

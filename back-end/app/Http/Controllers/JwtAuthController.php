@@ -12,9 +12,7 @@ use App\Models\User;
 class JwtAuthController extends Controller
 {
 
-    public function __construct() {
-        $this->middleware('auth:api', ['except' => ['login', 'register']]);
-    }
+
 
     /**
      * Get a JWT via given credentials.
@@ -72,6 +70,16 @@ class JwtAuthController extends Controller
         auth()->logout();
         return response()->json(['message' => 'User loged out']);
     }
+
+       /**
+    * Refresh a token.
+    *
+    * @return \Illuminate\Http\JsonResponse
+    */
+   public function refresh()
+   {
+       return $this->respondWithToken(auth()->refresh());
+   }
 
 
     /**
