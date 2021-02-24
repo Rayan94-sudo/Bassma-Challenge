@@ -9,7 +9,8 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
-import axios from 'axios';
+import axios from '../../Auth/componets/axios';
+
 const useStyles = makeStyles((theme) => ({
   paper: {
     marginTop: theme.spacing(8),
@@ -93,17 +94,18 @@ export default function Login() {
             .then((response) => {
               console.log(response.data.user.role);
               console.log(response.data.access_token);
-              localStorage.setItem('auth', response.data.access_token);
+              localStorage.setItem('access_token', response.data.access_token);
               if (response.data.user.role ==='client')
               window.location.href = "http://localhost:3000/thanks";
-            else  
-            localStorage.setItem('admin',true);
-            window.location.href = "http://localhost:3000/menu#/Customers";
+            else  {
+            localStorage.setItem('is_admin',true);
+            window.location.href = "http://localhost:3000/menu";
+            }
             });
             event.preventDefault();
         }}
           >
-          Loginsdfasdf
+          Login
           </Button>
         
         </form>

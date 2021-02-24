@@ -1,68 +1,33 @@
-import * as React from "react";
+/* eslint-disable no-useless-constructor */
+import {React,Component} from "react";
 import { Route, Switch } from 'react-router-dom';
-import SignUp from './Auth/pages/signup';
-import ThanksPage from './Customer/pages/thanksPage.js';
+import Signup from './Auth/pages/signup.js'
  import Login from './Auth/pages/login';
 import Menu from './Admin/components/menu';
-import Customers from './Admin/pages/customers';
-import Average from './Admin/pages/average';
+import PrivateRoute from './Auth/componets/PrivateRoute.js';
+import AdminRoute from './Auth/componets/AdminRoute.js'
+import ThanksPage from './Customer/pages/thanksPage.js'
+class App extends Component {
 
-function isAuth(){
-  return(localStorage.getItem('auth'));
+constructor(props) {
+  super (props);
+  
 }
-function isAdmin(){
-  return(isAuth()&&localStorage.getItem('admin'));
-}
-function App() {
-  // customer route 
-  if (isAuth()&&isAdmin()) return (<div className="App">
-      <Switch>
-              <Route path="/thanks" >
-                <ThanksPage/>
-              </Route>
-            
-            </Switch>
-    </div>);
-
-// admin route
-    if (isAdmin()) return (<div className="App">
-    <Switch>
-    
-            <Route path="/customers">
-            <Customers></Customers>
-            </Route>
-            
-            <Route path="/menu">
-            <Menu></Menu>
-            </Route>
-            
-
-            <Route path="/average">
-              <Average/>
-            </Route>
-          </Switch>
-
-  </div>)
-
-    
+render(){
   return (
     <div className="App">
-      <Switch>
-        
-      <Route path="/signUp">
-                <SignUp/>
-              </Route>
-
-              <Route path="/" >
-                <Login/>
-              </Route>
-            
-            </Switch>
-   
-
+    <Switch>
+    <Route path="/" component={Login} exact />
+    <Route path="/login" component={Login} exact />
+    <Route path="/signup" component={Signup} exact />
+          
+    <AdminRoute path="/menu" component={Menu}/>
+    <PrivateRoute path="/thanks" component={ThanksPage}/>
+  </Switch>
 
     </div>
   );
+}
 }
 
 export default App;

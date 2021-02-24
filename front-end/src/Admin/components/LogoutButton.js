@@ -1,21 +1,22 @@
-// in src/MyLogoutButton.js
+
 import * as React from 'react';
-import { forwardRef } from 'react';
-import { useLogout } from 'react-admin';
 import MenuItem from '@material-ui/core/MenuItem';
 import ExitIcon from '@material-ui/icons/PowerSettingsNew';
 
-const MyLogoutButton = forwardRef((props, ref) => {
-    const logout = useLogout();
-    const handleClick = () => logout();
+function handleClick(){
+    localStorage.clear();
+    window.location.href = "http://localhost:3000/login";
+}
+function MyLogoutButton () {
+   
     return (
         <MenuItem
             onClick={handleClick}
-            ref={ref}
+            
         >
             <ExitIcon /> Logout
         </MenuItem>
     );
-});
+}
 
 export default MyLogoutButton;
